@@ -1,0 +1,114 @@
+@media (min-width: 600px) {
+    .container {
+        width: 768px;
+        padding: 0 10px;
+        margin: auto;
+    }
+
+    .holiday {
+        margin-bottom: 60px;
+    }
+    
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 40px;
+        margin: auto 44px 136px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .logo_tablet {
+        display: block;
+        padding-top: 8px;
+    }
+
+    .logo_tablet a {
+        display: block;
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .authorization {
+        margin: 0;
+    }
+  
+    .title {
+        font-size: 52px;
+        line-height: 1.2;
+        margin-bottom: 28px;
+    }
+
+    h2 {
+        margin-bottom: 36px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        margin-bottom: 38px;
+        width: 100%;
+    }
+
+    .find {
+        width: 228px;
+    }
+
+    .team {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 460px;
+        margin-bottom: 30px;
+    }
+
+    .team li:not(:nth-last-child(-n+2)) {
+        margin-bottom: 30px;
+    }
+
+    .team li:nth-last-child(-n+2) {
+        margin-bottom: 0px;
+    }
+            
+    .partner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .download-partners {
+        margin: 0;
+    }
+
+    .team > .b {
+        order: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 942px;
+        padding: 0;
+    }
+
+    .title {
+        margin-bottom: 34px;
+    } 
+
+    .team {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 942px;
+    } 
+
+    .team li:nth-child(-n+2) {
+        margin-bottom: 0;
+    }     
+}
