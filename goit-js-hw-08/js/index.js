@@ -2,6 +2,12 @@
 import photos from './gallery-items.js';
 
 const gallerey = document.querySelector('ul.js-gallery');
+const modal = document.querySelector('div.js-lightbox');
+const imgModal = document.querySelector('img.lightbox__image');
+const backdrop = document.querySelector('div.lightbox__content');
+const closeModalBtn = document.querySelector(
+  'button[data-action="close-lightbox"]'
+);
 
 photos.forEach((elem) => {
   const li = document.createElement('li');
@@ -22,12 +28,7 @@ photos.forEach((elem) => {
   gallerey.append(li);
 });
 
-const modal = document.querySelector('div.js-lightbox');
-const imgModal = document.querySelector('img.lightbox__image');
-
 gallerey.addEventListener('click', (e) => {
-  // console.log('TARGET:', e.target);
-  // console.log('CURRENT:', e.currentTarget);
   e.preventDefault();
   // это чтоб не срабатывала ссылка на href фотки, а показывало модалку
   if (e.target === e.currentTarget) {
@@ -39,18 +40,25 @@ gallerey.addEventListener('click', (e) => {
   window.addEventListener('keydown', handleKeyPress);
 });
 
-const closeModalBtn = document.querySelector(
-  'button[data-action="close-lightbox"]'
-);
+closeModalBtn.addEventListener('click', closeModal);
+backdrop.addEventListener('click', handleOverlayClick);
 
-function closeModal() {
+function closeModal(e) {
+  // console.log('TARGET:', e.target);
+  // console.log('CURRENT:', e.currentTarget);
   modal.classList.remove('is-open');
   imgModal.setAttribute('src', '');
   window.removeEventListener('keydown', handleKeyPress);
 }
 
-closeModalBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', closeModal);
+function handleOverlayClick(e) {
+  // console.log('TARGET:', e.target);
+  // console.log('CURRENT:', e.currentTarget);
+  if (e.target !== e.currentTarget) {
+    return;
+  }
+  closeModal();
+}
 
 function handleKeyPress(e) {
   if (e.code !== 'Escape') {
